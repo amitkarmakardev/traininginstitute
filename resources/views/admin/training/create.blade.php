@@ -84,7 +84,7 @@
                 <div class="control-group">
                     {!! Form::label('authorization_code', 'Authorization Code', ['class' => 'control-label']) !!}
                     <div class="controls">
-                        {!! Form::text('authorization_code', null, ['class' => 'form-control span9']) !!}
+                        {!! Form::text('authorization_code', str_random(15), ['class' => 'form-control span4', 'readonly' => 'true']) !!}
                         @if($errors->has('authorization_code'))
                             @foreach($errors->get('authorization_code') as $error)
                                 <span class="help-inline"> - {{ $error }} </span>
@@ -97,8 +97,6 @@
                         {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
                     </div>
                 </div>
-
-
                 {!! Form::close() !!}
             </div>
         </div>
