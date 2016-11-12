@@ -19,6 +19,7 @@ class CreateTraineesTable extends Migration
             $table->string('email')->unique();
             $table->text('address');
             $table->string('training_code');
+            $table->string('reg_id');
             $table->string('org_details');
             $table->timestamps();
         });

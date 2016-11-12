@@ -8,10 +8,8 @@
             </div>
             <div class="module-body">
 
-                {!! Form::model($data, ['url' => url('admin', ['book', $data->id]), 'class' => 'form-horizontal row-fluid']) !!}
-
+                {!! Form::model($data, ['method' => 'patch', 'url' => url('admin', ['book', $data->id]), 'class' => 'form-horizontal row-fluid']) !!}
                 @include('admin.book.form')
-
                 <div class="control-group">
                     <div class="controls">
                         {!! Form::submit('Update', ['class' => 'btn btn-success']) !!}

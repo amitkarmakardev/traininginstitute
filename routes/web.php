@@ -42,8 +42,19 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('{id}', 'BookController@show');
 
         Route::post('/', 'BookController@store');
-        Route::post('/search', 'BookController@search');
-        Route::post('/{id}', 'BookController@update');
+        Route::post('search', 'BookController@search');
+        Route::patch('{id}', 'BookController@update');
+
+    });
+
+    // Library user
+
+    Route::group(['prefix' => 'lib-user'], function () {
+
+        Route::get('/', 'LibUserController@index');
+        Route::get('create', 'LibUserController@create');
+        Route::post('/', 'LibUserController@store');
+        Route::delete('/{id}', 'LibUserController@delete');
 
     });
 
@@ -57,7 +68,6 @@ Route::group(['prefix' => 'training'], function () {
 
     Route::get('/', 'TrainingController@publicIndex');
     Route::get('{code}/register', 'TraineeController@showRegistrationForm');
-
     Route::post('/register', 'TraineeController@register');
 
 });
