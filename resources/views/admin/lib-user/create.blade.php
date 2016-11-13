@@ -13,7 +13,7 @@
                 <div class="control-group">
                     {!! Form::label('user_id', 'User ID', ['class' => 'control-label'] ) !!}
                     <div class="controls">
-                        {!! Form::text('user_id', null, ['class' => 'form-control']) !!}
+                        {!! Form::text('user_id', null, ['class' => 'span3']) !!}
                         @if($errors->has('user_id'))
                             @foreach($errors->get('user_id') as $error)
                                 <span class="help-inline"> - {{ $error }} </span>
@@ -57,7 +57,7 @@
                 <div class="control-group">
                     {!! Form::label('type', 'User Type', ['class' => 'control-label']) !!}
                     <div class="controls">
-                        {!! Form::select('type', $type_options, null, ['class' => 'form-control']) !!}
+                        {!! Form::select('type', $type_options, null, ['class' => 'span4']) !!}
                         @if($errors->has('type'))
                             @foreach($errors->get('type') as $error)
                                 <span class="help-inline">- {{ $error }} </span>
