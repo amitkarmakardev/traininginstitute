@@ -38,6 +38,6 @@ class TrainingRepository
 
     public function ongoingTrainings()
     {
-        return Training::where('actual_start_date', '<=', date('Y-m-d'))->where('actual_end_date', null)->get();
+        return Training::where('scheduled_end_date', '>', date('Y-m-d'))->get();
     }
 }
