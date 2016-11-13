@@ -55,12 +55,19 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('create', 'LibUserController@create');
         Route::post('/', 'LibUserController@store');
         Route::delete('/{id}', 'LibUserController@delete');
-
     });
 
 
 });
 
+// Issue Receive Books
+
+Route::group(['prefix' => 'library'], function(){
+
+    Route::get('issue', 'LibraryController@showIssueForm');
+    Route::get('retrieve', 'LibraryController@showRetrieveForm');
+
+});
 
 // Public Routes
 
