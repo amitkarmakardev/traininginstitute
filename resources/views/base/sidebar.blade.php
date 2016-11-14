@@ -19,19 +19,24 @@
         <ul id="toggleBooks" class="collapse unstyled">
             <li><a href="{{ url('admin', ['book']) }}"><i class="fa fa-navicon"></i> &nbsp;List </a></li>
             <li><a href="{{ url('admin', ['book', 'create']) }}"><i class="fa fa-plus"></i> &nbsp;Create </a></li>
+            <li><a href="{{ url('admin', ['library', 'issue-retrieve']) }}"><i class="fa fa-refresh"></i> &nbsp;Issue Retrieve Books </a></li>
         </ul>
     </li>
 
     <li>
-        <a class="collapsed" data-toggle="collapse" href="#toggleLibUsers">
-            <i class="fa fa-user"></i>&nbsp;
-            <i class="fa fa-chevron-down pull-right"></i>
-            Library User
-        </a>
-        <ul id="toggleLibUsers" class="collapse unstyled">
+    <a class="collapsed" data-toggle="collapse" href="#toggleLibUsers">
+    <i class="fa fa-user"></i>&nbsp;
+    <i class="fa fa-chevron-down pull-right"></i>
+    Library User
+    </a>
+    <ul id="toggleLibUsers" class="collapse unstyled">
             <li><a href="{{ url('admin', ['lib-user']) }}"><i class="fa fa-navicon"></i> &nbsp;List </a></li>
             <li><a href="{{ url('admin', ['lib-user', 'create']) }}"><i class="fa fa-plus"></i> &nbsp;Create </a></li>
         </ul>
     </li>
+
+
+
+
     <li><a href="#"><i class="menu-icon fa fa-signout"></i>Logout </a></li>
 </ul>

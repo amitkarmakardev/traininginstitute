@@ -47,7 +47,8 @@ class TrainingController extends Controller
 
     public function show($code)
     {
-
+        $data = $this->repository->get($code);
+        return view('admin.training.show', compact('data'));
     }
 
     public function publicIndex()

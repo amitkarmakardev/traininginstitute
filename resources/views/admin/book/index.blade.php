@@ -34,7 +34,9 @@
                             <td>{{ $data->isbn }}</td>
                             <td>{{ $data->title }}</td>
                             <td>{{ $data->author_details }}</td>
-                            <td>Issued</td>
+                            <td>
+                                <span class="{{ $data->currentStatus() }}"> {{ ucwords($data->currentStatus()) }}</span>
+                            </td>
                             <td><a href="{{ url('admin', ['book', $data->id, 'edit']) }}" class="btn btn-info">Edit</a></td>
                         </tr>
                     @endforeach

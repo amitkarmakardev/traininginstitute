@@ -17,7 +17,7 @@
                     </tr>
                     @foreach($data_list as $data)
                         <tr>
-                            <td>{{ $data->code }}</td>
+                            <td><a href="{{ url('admin', ['training', $data->code]) }}">{{ $data->code }}</a></td>
                             <td>{{ $data->name }}</td>
                             <td>{{ $data->scheduled_start_date }}</td>
                             <td>{{ $data->scheduled_end_date }}</td>

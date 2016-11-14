@@ -17,8 +17,9 @@ class CreateLibrariesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('book_id');
             $table->unsignedInteger('lib_user_id');
-            $table->string('status');
-            $table->unsignedInteger('user');
+            $table->dateTime('issued_at');
+            $table->dateTime('retrieved_at')->nullable();
+            $table->string('user');
             $table->timestamps();
         });
     }

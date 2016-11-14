@@ -25,6 +25,7 @@ class Training extends Model
 
     public function trainees()
     {
-        return $this->hasMany('App\Student', 'training_code', 'code');
+        return $this->hasMany('App\Trainee', 'training_code', 'code');
     }
+
 }
