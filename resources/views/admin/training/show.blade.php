@@ -28,6 +28,10 @@
                         <th>Scheduled End Date</th>
                         <td>{{ $data->scheduled_end_date }}</td>
                     </tr>
+                    <tr>
+                        <th>Authorization Code</th>
+                        <td>{{ $data->authorization_code }}</td>
+                    </tr>
                 </table>
             </div>
             <div class="module-head">
