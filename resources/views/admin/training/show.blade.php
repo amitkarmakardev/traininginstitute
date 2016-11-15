@@ -40,10 +40,10 @@
             <div class="module-body">
                 <table class="table table-striped">
                     <tr>
-                        <th>Trainee ID</th>
-                        <th>Trainee Name</th>
-                        <th>Trainee Email</th>
-                        <th>Trainee Organization</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Organization</th>
                     </tr>
                     @foreach($data->trainees as $trainee)
                         <tr>
