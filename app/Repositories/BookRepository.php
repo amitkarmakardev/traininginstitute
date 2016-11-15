@@ -30,7 +30,7 @@ class BookRepository
         $data->update($request->all());
     }
 
-    public function searchResult($request)
+    public static function searchResult($request)
     {
         return
             Book:: where('id', 'like', '%' . $request->get('id') . '%')

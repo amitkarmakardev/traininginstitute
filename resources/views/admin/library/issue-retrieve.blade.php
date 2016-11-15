@@ -8,60 +8,53 @@
             </div>
             <div class="module-body">
 
+                {!! Form::open(['url' => '#', 'class' => 'form-horizontal row-fluid', 'id' => 'search-book-form']) !!}
+                <div class="control-group">
+                    {!! Form::text('id', null, ['class' => 'span1', 'placeholder' => 'ID']) !!}
+                    {!! Form::text('isbn', null, ['class' => 'span3', 'placeholder' => 'ISBN']) !!}
+                    {!! Form::text('title', null, ['class' => 'span3', 'placeholder' => 'Title']) !!}
+                    {!! Form::text('author_details', null, ['class' => 'span4', 'placeholder' => 'Author']) !!}
+                    <a href="#" onclick="populateBookSearchResult()" class="btn btn-success">Search</a>
+                </div>
+                {!! Form::close() !!}
+                <br>
+                <h5>1. Select Books</h5>
+                <hr>
                 {!! Form::open(['method' => 'post', 'url' => url('admin', ['library', 'issue']), 'class' => 'form-horizontal row-fluid', 'autocomplete' => 'off']) !!}
+
                 {!! Form::hidden('issued_at', null) !!}
                 {!! Form::hidden('user', null) !!}
-                <div class="control-group">
-                    {!! Form::label('book_id', 'Book ID', ['class' => 'control-label'] ) !!}
-                    <div class="controls">
-                        {!! Form::text('book_id', null, ['class' => 'span2']) !!}
-                        <a href="#" onclick="populateBookDetails()" style="text-decoration: none">&nbsp;&nbsp;>></a>
-                        &nbsp;&nbsp;
-                        <div class="help-inline" id="book-details"></div>
 
-                    </div>
+                <table class="table table-striped data-table">
+                    <thead>
+                    <tr>
+                        <th>Select</th>
+                        <th>ID</th>
+                        <th>ISBN</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="book-list">
+
+                    </tbody>
+                </table>
+                <hr>
+                <h5>2. Select User</h5>
+                <hr>
+                <div class="control-group">
+                    {!! Form::text('lib_user_id', null, ['class' => 'span2', 'id' => 'lib_user_id', 'placeholder' => 'User ID']) !!}
+                    <a href="#" onclick="populateLibUserDetails()" style="text-decoration: none">&nbsp;&nbsp;>></a>
+                    &nbsp;
+                    <div class="help-inline" id="lib-user-details"></div>
                 </div>
                 <div class="control-group">
-                    {!! Form::label('lib_user_id', 'Issued To', ['class' => 'control-label'] ) !!}
-                    <div class="controls">
-                        {!! Form::text('lib_user_id', null, ['class' => 'span2']) !!}
-                        <a href="#" onclick="populateLibUserDetails()" style="text-decoration: none">&nbsp;&nbsp;>></a>
-                        &nbsp;&nbsp;
-                        <div class="help-inline" id="lib-user-details"></div>
-                    </div>
-                </div>
-                <div class="control-group">
-                    <div class="controls">
-                        {!! Form::submit('Issue', ['class' => 'btn btn-primary']) !!}
-                    </div>
+                    {!! Form::submit('Issue Book', ['class' => 'btn btn-primary']) !!}
                 </div>
                 {!! Form::close() !!}
 
-                <script>
-                    function populateBookDetails() {
-                        var book_id = $('#book_id').val();
-                        $.ajax({
-                            type: "GET",
-                            url: "{{ url('ajax', ['book-details']) }}" + '/' + book_id,
-                            async: false,
-                            success: function (text) {
-                                $('#book-details').html(text);
-                            }
-                        });
-                    }
 
-                    function populateLibUserDetails() {
-                        var lib_user_id = $('#lib_user_id').val();
-                        $.ajax({
-                            type: "GET",
-                            url: "{{ url('ajax', ['lib-user-details']) }}" + '/' + lib_user_id,
-                            async: false,
-                            success: function (text) {
-                                $('#lib-user-details').html(text);
-                            }
-                        });
-                    }
-                </script>
             </div>
             <div class="module-head">
                 <h3>Retrieve Books</h3>
@@ -92,4 +85,29 @@
 
         </div>
     </div>
+
+    <script>
+        function populateLibUserDetails() {
+            var lib_user_id = $('#lib_user_id').val();
+            $.ajax({
+                type: "GET",
+                url: "{{ url('ajax', ['lib-user-details']) }}" + '/' + lib_user_id,
+                async: false,
+                success: function (text) {
+                    $('#lib-user-details').html(text);
+                }
+            });
+        }
+        function populateBookSearchResult() {
+            var inputs = $('#search-book-form').serialize();
+            $.ajax({
+                type: "GET",
+                url: "{{ url('ajax', ['search-books']) }}" + "?" + inputs,
+                async: false,
+                success: function (text) {
+                    $('#book-list').html(text);
+                }
+            });
+        }
+    </script>
 @stop

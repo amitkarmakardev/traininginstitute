@@ -15,7 +15,6 @@
                     {!! Form::text('author_details', null, ['class' => 'span4', 'placeholder' => 'Author']) !!}
                     {!! Form::submit('Search', ['class' => 'btn btn-success']) !!}
                 </div>
-
                 {!! Form::close() !!}
                 <hr>
                 <table class="table table-striped data-table">

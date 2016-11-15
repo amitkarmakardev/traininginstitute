@@ -71,4 +71,5 @@ Route::group(['prefix' => 'ajax'], function () {
     Route::get('book-details/{id}', 'AjaxController@getBookDetails');
     Route::get('check-book-status/{id}', 'AjaxController@checkBookStatus');
     Route::get('lib-user-details/{lib_user_id?}', 'AjaxController@getLibUserDetails');
+    Route::get('search-books', 'AjaxController@searchBooks');
 });

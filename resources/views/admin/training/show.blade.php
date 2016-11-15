@@ -9,7 +9,7 @@
             <div class="module-body">
                 <table class="table table-hover">
                     <tr>
-                        <th>Code</th>
+                        <th style="width: 25%">Code</th>
                         <td>{{ $data->code }}</td>
                     </tr>
                     <tr>
@@ -41,9 +41,9 @@
                         <th>Trainee Email</th>
                         <th>Trainee Organization</th>
                     </tr>
-                    @foreach($data->trainees() as $trainee)
+                    @foreach($data->trainees as $trainee)
                         <tr>
-                            <td>{{ $trainee->user_id }}</td>
+                            <td>{{ $trainee->reg_id }}</td>
                             <td>{{ $trainee->name }}</td>
                             <td>{{ $trainee->email }}</td>
                             <td>{{ $trainee->org_details }}</td>
@@ -52,6 +52,5 @@
                 </table>
             </div>
         </div>
-    </div>
     </div>
 @stop
