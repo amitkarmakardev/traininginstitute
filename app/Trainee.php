@@ -16,4 +16,9 @@ class Trainee extends Model
         // Also set trainee reg id
         $this->attributes['reg_id'] = TraineeRepository::getNextTraineeRegId($modified_training_code);
     }
+
+    public function training()
+    {
+        return $this->belongsTo('App\Training', 'training_code', 'code');
+    }
 }
