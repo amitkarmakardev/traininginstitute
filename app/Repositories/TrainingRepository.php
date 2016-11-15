@@ -17,7 +17,7 @@ class TrainingRepository
         return Training::create($request->all());
     }
 
-    public function get($code)
+    public static function get($code)
     {
         return Training::where('code', $code)->first();
     }

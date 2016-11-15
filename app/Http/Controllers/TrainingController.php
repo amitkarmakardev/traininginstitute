@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\TrainingStarted;
 use App\Repositories\TrainingRepository;
 use Illuminate\Http\Request;
 
@@ -36,6 +37,8 @@ class TrainingController extends Controller
     public function start($code)
     {
         $this->repository->start($code);
+
+        event(new TrainingStarted($code));
         return redirect()->back();
     }
 

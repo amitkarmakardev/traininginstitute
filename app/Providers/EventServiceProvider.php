@@ -14,6 +14,14 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         'App\Events\TraineeRegistered' => [
             'App\Listeners\SendRegConfirmEmail'
+        ],
+
+        'App\Events\TrainingStarted' => [
+            'App\Listeners\AddTraineesAsLibUser'
+        ],
+
+        'App\Events\TrainingEnded' => [
+            'App\Listeners\RemoveTraineesFromLibUser'
         ]
     ];
 
