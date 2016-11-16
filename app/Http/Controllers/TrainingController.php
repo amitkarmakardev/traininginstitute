@@ -13,7 +13,7 @@ class TrainingController extends Controller
 
     public function __construct(TrainingRepository $repository)
     {
-//        $this->middleware('auth');
+        $this->middleware('auth')->except('publicIndex');
         $this->repository = $repository;
     }
 
@@ -63,5 +63,11 @@ class TrainingController extends Controller
     {
         $data_list = $this->repository->ongoingTrainings();
         return view('public.registration.index', compact('data_list'));
+    }
+
+    public function publicDetails($code)
+    {
+        $data = $this->repository->publicDetails($code);
+        return view('public.registration.show', compact('data'));
     }
 }

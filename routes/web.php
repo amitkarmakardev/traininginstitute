@@ -16,6 +16,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// User Authentication Routes
+Route::get('login', 'Auth\LoginController@showLoginForm');
+Route::post('login', 'Auth\LoginController@login');
+Route::get('logout', 'Auth\LoginController@logout');
 
 // Admin routes
 
@@ -63,6 +67,7 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['prefix' => 'training'], function () {
     Route::get('/', 'TrainingController@publicIndex');
     Route::get('{code}/register', 'TraineeController@showRegistrationForm');
+    Route::get('{code}', 'TrainingController@publicDetails');
     Route::post('register', 'TraineeController@register');
 });
 
