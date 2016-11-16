@@ -24,15 +24,12 @@ class TraineeController extends Controller
     public function register(Request $request)
     {
         $this->validate($request, config('traininginstitute.trainee.validation_rules'));
-        $trainee = $this->repository->register($request);
-
-        if($trainee == 'failed'){
+        if (!$this->repository->isTraineeAuthorized($request->get('training_code'), $request->get('authorization_code'))) {
             return "Authorization code does not match";
         }
-        else{
-            // Fire trainee registered event
-//            event(new TraineeRegistered($trainee));
-            return redirect()->to(url('training'));
-        }
+        $trainee = $this->repository->register($request);
+        // Fire trainee registered event
+        event(new TraineeRegistered($trainee));
+        return redirect()->to(url('training'));
     }
 }

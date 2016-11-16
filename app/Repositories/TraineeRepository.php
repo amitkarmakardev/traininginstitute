@@ -14,15 +14,18 @@ class TraineeRepository
         return $training_code . ($count + 1);
     }
 
+    public function isTraineeAuthorized($code, $authorization_code)
+    {
+        $training = Training::where('code', $code)->first();
+        if ($training->authorization_code == $authorization_code) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public function register($request)
     {
-        $training = Training::where('code', $request->get('training_code'))->first();
-
-        if ($training->authorization_code == $request->get('authorization_code')) {
-            return Trainee::create($request->all());
-        } else {
-            return 'failed';
-        }
+        return Trainee::create($request->all());
     }
 }
