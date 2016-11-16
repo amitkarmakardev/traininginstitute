@@ -22,9 +22,13 @@
                             <td>{{ $data->email }}</td>
                             <td>{{ $data->org_details }}</td>
                             <td>
-                                {!! Form::open(['method' => 'DELETE', 'url' => url('admin', ['lib-user', $data->id])]) !!}
-                                {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-                                {!! Form::close() !!}
+                                @if($data->training_code == null)
+                                    {!! Form::open(['method' => 'DELETE', 'url' => url('admin', ['lib-user', $data->id])]) !!}
+                                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                    {!! Form::close() !!}
+                                @else
+                                    Trainee
+                                @endif
                             </td>
                         </tr>
                     @endforeach

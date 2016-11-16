@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Training;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -18,9 +19,12 @@ class TrainingEnded
      *
      * @return void
      */
-    public function __construct()
+
+    public $training;
+
+    public function __construct(Training $training)
     {
-        //
+        $this->training = $training;
     }
 
     /**

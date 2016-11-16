@@ -28,4 +28,9 @@ class Training extends Model
         return $this->hasMany('App\Trainee', 'training_code', 'code');
     }
 
+    public function libUsers()
+    {
+        return $this->hasMany('App\LibUser', 'training_code', 'code');
+    }
+
 }

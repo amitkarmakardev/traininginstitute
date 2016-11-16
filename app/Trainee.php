@@ -21,4 +21,9 @@ class Trainee extends Model
     {
         return $this->belongsTo('App\Training', 'training_code', 'code');
     }
+
+    public function libUser()
+    {
+        return $this->hasOne('App\LibUser', 'user_id', 'reg_id');
+    }
 }

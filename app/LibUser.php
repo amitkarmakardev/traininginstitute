@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class LibUser extends Model
 {
-    protected $fillable = ['user_id', 'name', 'email', 'org_details', 'type'];
+    protected $fillable = ['user_id', 'name', 'email', 'org_details', 'type', 'training_code'];
 
     public function getDetails()
     {

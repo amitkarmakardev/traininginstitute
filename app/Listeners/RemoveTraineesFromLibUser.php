@@ -3,15 +3,12 @@
 namespace App\Listeners;
 
 use App\Events\TrainingEnded;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class RemoveTraineesFromLibUser
 {
     /**
      * Create the event listener.
      *
-     * @return void
      */
     public function __construct()
     {
@@ -21,11 +18,13 @@ class RemoveTraineesFromLibUser
     /**
      * Handle the event.
      *
-     * @param  TrainingEnded  $event
+     * @param  TrainingEnded $event
      * @return void
      */
     public function handle(TrainingEnded $event)
     {
-        //
+        $event->training->libUsers->each(function ($libUser) {
+            $libUser->delete();
+        });
     }
 }

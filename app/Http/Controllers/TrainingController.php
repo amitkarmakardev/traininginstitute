@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\TrainingEnded;
 use App\Events\TrainingStarted;
 use App\Repositories\TrainingRepository;
 use Illuminate\Http\Request;
@@ -36,15 +37,19 @@ class TrainingController extends Controller
 
     public function start($code)
     {
-        $this->repository->start($code);
+        $training = $this->repository->start($code);
 
-        event(new TrainingStarted($code));
+        // fire training started event and create lib users same as tranees
+        event(new TrainingStarted($training));
         return redirect()->back();
     }
 
     public function end($code)
     {
-        $this->repository->end($code);
+        $training = $this->repository->end($code);
+
+        // fire training ended event and delete lib users same as trainees
+        event(new TrainingEnded($training));
         return redirect()->back();
     }
 

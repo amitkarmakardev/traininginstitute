@@ -11,6 +11,7 @@
                 {!! Form::open(['method' => 'post', 'url' => url('training', ['register']), 'class' => 'form-horizontal row-fluid']) !!}
 
                 {!! Form::hidden('reg_id', null) !!}
+                {!! Form::hidden('training_code', null) !!}
 
                 <div class="control-group">
                     {!! Form::label('training_code', 'Training Code', ['class' => 'control-label'] ) !!}

@@ -23,9 +23,9 @@ class TrainingStarted
 
     public $training;
 
-    public function __construct($code )
+    public function __construct(Training $training )
     {
-        $this->training = TrainingRepository::get($code);
+        $this->training = $training;
     }
 
     /**

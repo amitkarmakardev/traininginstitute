@@ -17,7 +17,7 @@ class TrainingRepository
         return Training::create($request->all());
     }
 
-    public static function get($code)
+    public function get($code)
     {
         return Training::where('code', $code)->first();
     }
@@ -27,6 +27,7 @@ class TrainingRepository
         $data = $this->get($code);
         $data->actual_start_date = date('Y-m-d');
         $data->save();
+        return $data;
     }
 
     public function end($code)
@@ -34,6 +35,7 @@ class TrainingRepository
         $data = $this->get($code);
         $data->actual_end_date = date('Y-m-d');
         $data->save();
+        return $data;
     }
 
     public function ongoingTrainings()
