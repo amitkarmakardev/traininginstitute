@@ -11,13 +11,11 @@
 <!-- Header -->
 @include('base.header')
 
-        <!-- Flash Message -->
+<!-- Flash Message -->
 @include('base.flash')
 
-        <!-- Main Content -->
-<div class="wrapper">
-    <div class="container">
-        <div class="row">
+<!-- Main Content -->
+
 @yield('content')
 
 </body>
@@ -38,10 +36,11 @@
 <script src="{{ asset('js/app.js') }}"></script>
 
 <!-- Bootstrap Datepicker -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 {{--<script src="{{ asset('plugins/edmin/scripts/common.js') }}"></script>--}}
 
-<!-- Datatables -->
+        <!-- Datatables -->
 <script src="{{ asset('plugins/edmin/scripts/datatables/jquery.dataTables.js') }}"></script>
 
 @stop
