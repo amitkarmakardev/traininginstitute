@@ -9,7 +9,7 @@
             <div class="module-body">
 
                 {!! Form::open(['method' => 'post', 'url' => url('admin', ['lib-user']), 'class' => 'form-horizontal row-fluid']) !!}
-
+                {!! Form::hidden('type', 'WBPDCL Employee') !!}
                 <div class="control-group">
                     {!! Form::label('user_id', 'User ID', ['class' => 'control-label'] ) !!}
                     <div class="controls">
@@ -46,21 +46,10 @@
                 <div class="control-group">
                     {!! Form::label('org_details', 'Organization', ['class' => 'control-label'] ) !!}
                     <div class="controls">
-                        {!! Form::textarea('org_details', null, ['class' => 'span9', 'rows' => 3]) !!}
+                        {!! Form::text('org_details', null, ['class' => 'span9']) !!}
                         @if($errors->has('org_details'))
                             @foreach($errors->get('org_details') as $error)
                                 <span class="help-inline"> - {{ $error }} </span>
-                            @endforeach
-                        @endif
-                    </div>
-                </div>
-                <div class="control-group">
-                    {!! Form::label('type', 'User Type', ['class' => 'control-label']) !!}
-                    <div class="controls">
-                        {!! Form::select('type', $type_options, null, ['class' => 'span4']) !!}
-                        @if($errors->has('type'))
-                            @foreach($errors->get('type') as $error)
-                                <span class="help-inline">- {{ $error }} </span>
                             @endforeach
                         @endif
                     </div>

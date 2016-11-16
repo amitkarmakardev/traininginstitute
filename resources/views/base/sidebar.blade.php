@@ -36,7 +36,4 @@
     </li>
 
     <li><a href="{{ url('training') }}"><i class="fa fa-registered"></i> &nbsp;Registration </a></li>
-
-
-    <li><a href="#"><i class="menu-icon fa fa-signout"></i>Logout </a></li>
 </ul>

@@ -1,4 +1,4 @@
-@extends('admin.training.layout')
+@extends('public.registration.layout')
 
 @section('left')
     <div class="content">
@@ -7,7 +7,7 @@
                 <h3>Training Details</h3>
             </div>
             <div class="module-body">
-                <table class="table table-hover">
+                <table class="table table-hover" style="border-bottom: 1px solid #dedede">
                     <tr>
                         <th style="width: 25%">Code</th>
                         <td>{{ $data->code }}</td>
@@ -29,35 +29,12 @@
                         <td>{{ $data->scheduled_end_date }}</td>
                     </tr>
                     <tr>
-                        <th>Authorization Code</th>
-                        <td>{{ $data->authorization_code }}</td>
-                    </tr>
-                    <tr>
                         <th>Seats Available</th>
                         <td>{{ intval($data->max_seats) - intval($data->trainees->count()) .' out of '. $data->max_seats }}</td>
                     </tr>
                 </table>
-            </div>
-            <div class="module-head">
-                <h3>Enrolled Trainees</h3>
-            </div>
-            <div class="module-body">
-                <table class="table table-striped">
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Organization</th>
-                    </tr>
-                    @foreach($data->trainees as $trainee)
-                        <tr>
-                            <td>{{ $trainee->reg_id }}</td>
-                            <td>{{ $trainee->name }}</td>
-                            <td>{{ $trainee->email }}</td>
-                            <td>{{ $trainee->org_details }}</td>
-                        </tr>
-                    @endforeach
-                </table>
+                <br>
+                <a href="{{ url('training', [$data->code, 'register']) }}" class="btn btn-success">Register for this training</a>
             </div>
         </div>
     </div>

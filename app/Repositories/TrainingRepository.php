@@ -38,8 +38,15 @@ class TrainingRepository
         return $data;
     }
 
+    // For Public viewing
+
     public function ongoingTrainings()
     {
-        return Training::where('scheduled_end_date', '>', date('Y-m-d'))->get();
+        return Training::where('scheduled_end_date', '>', date('Y-m-d'))->where('actual_end_date', null)->select('code', 'name', 'scheduled_start_date', 'scheduled_end_date', 'max_seats')->get();
+    }
+
+    public function publicDetails($code)
+    {
+        return Training::where('code', $code)->select('code', 'name', 'description', 'scheduled_start_date', 'scheduled_end_date', 'max_seats')->first();
     }
 }
