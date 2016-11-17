@@ -12,6 +12,7 @@ class LibUserController extends Controller
 
     public function __construct(LibUserRepository $repository)
     {
+        $this->middleware('auth');
         $this->repository = $repository;
     }
 

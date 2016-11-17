@@ -13,6 +13,7 @@ class LibraryController extends Controller
 
     public function __construct(LibraryRepository $repository)
     {
+        $this->middleware('auth');
         $this->repository = $repository;
     }
 

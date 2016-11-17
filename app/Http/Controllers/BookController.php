@@ -12,7 +12,7 @@ class BookController extends Controller
 
     public function __construct(BookRepository $repository)
     {
-//        $this->middleware('auth');
+        $this->middleware('auth');
         $this->repository = $repository;
     }
 
