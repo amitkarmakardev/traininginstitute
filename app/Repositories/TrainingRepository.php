@@ -40,9 +40,9 @@ class TrainingRepository
 
     // For Public viewing
 
-    public function ongoingTrainings()
+    public function trainings()
     {
-        return Training::where('scheduled_end_date', '>', date('Y-m-d'))->where('actual_end_date', null)->select('code', 'name', 'scheduled_start_date', 'scheduled_end_date', 'max_seats')->get();
+        return Training::latest()->select('code', 'name', 'scheduled_start_date', 'scheduled_end_date', 'actual_start_date', 'actual_end_date', 'max_seats')->get();
     }
 
     public function publicDetails($code)

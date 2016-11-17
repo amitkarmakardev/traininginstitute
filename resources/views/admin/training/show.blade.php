@@ -30,11 +30,19 @@
                     </tr>
                     <tr>
                         <th>Authorization Code</th>
-                        <td>{{ $data->authorization_code }}</td>
+                        <td class="completed">{{ $data->authorization_code }}</td>
                     </tr>
                     <tr>
                         <th>Seats Available</th>
-                        <td>{{ intval($data->max_seats) - intval($data->trainees->count()) .' out of '. $data->max_seats }}</td>
+                        <td>{{ $data->availableSeats() .' out of '. $data->max_seats }}</td>
+                    </tr>
+                    <tr>
+                        <th>Actual Start Date</th>
+                        <td>{{ $data->actual_start_date }}</td>
+                    </tr>
+                    <tr>
+                        <th>Actual End Date</th>
+                        <td>{{ $data->actual_end_date }}</td>
                     </tr>
                 </table>
             </div>
@@ -42,7 +50,7 @@
                 <h3>Enrolled Trainees</h3>
             </div>
             <div class="module-body">
-                <table class="table table-striped">
+                <table class="table table-hover">
                     <tr>
                         <th>ID</th>
                         <th>Name</th>

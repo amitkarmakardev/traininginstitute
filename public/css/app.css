@@ -1,6 +1,6 @@
-.issued{
+.issued, .completed{
     color: #ff413e;
 }
-.available{
+.available, .ongoing{
     color: green;
 }

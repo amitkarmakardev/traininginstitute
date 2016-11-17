@@ -61,7 +61,7 @@ class TrainingController extends Controller
 
     public function publicIndex()
     {
-        $data_list = $this->repository->ongoingTrainings();
+        $data_list = $this->repository->trainings();
         return view('public.registration.index', compact('data_list'));
     }
 

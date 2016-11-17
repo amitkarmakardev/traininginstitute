@@ -22,13 +22,13 @@
                             <td>{{ $data->scheduled_start_date }}</td>
                             <td>{{ $data->scheduled_end_date }}</td>
                             <td>
-                                @if($data->status() == 'Scheduled')
+                                @if($data->status() == 'scheduled')
                                     <a href="{{ url('admin', ['training', $data->code, 'start']) }}"
                                        class="btn btn-success">Start
                                         Training</a>
-                                @elseif($data->status() == 'Completed')
+                                @elseif($data->status() == 'completed')
                                     Completed on {{ $data->actual_end_date }}
-                                @elseif($data->status() == 'Ongoing')
+                                @elseif($data->status() == 'ongoing')
                                     <a href="{{ url('admin', ['training', $data->code, 'end']) }}"
                                        class="btn btn-danger">End
                                         Training</a>

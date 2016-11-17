@@ -26,14 +26,14 @@ class Training extends Model
     public function status()
     {
         if(!$this->hasStarted()){
-            return 'Scheduled';
+            return 'scheduled';
         }
         else{
             if($this->hasEnded()){
-                return "Completed";
+                return "completed";
             }
             else{
-                return "Ongoing";
+                return "ongoing";
             }
         }
     }
@@ -46,6 +46,11 @@ class Training extends Model
     public function libUsers()
     {
         return $this->hasMany('App\LibUser', 'training_code', 'code');
+    }
+
+    public function availableSeats()
+    {
+        return intval($this->max_seats) - intval($this->trainees->count());
     }
 
 }
