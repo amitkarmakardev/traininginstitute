@@ -7,7 +7,7 @@
                 <h3>Book List</h3>
             </div>
             <div class="module-body">
-                {!! Form::open(['url' => url('admin', ['book', 'search']), 'class' => 'form-horizontal row-fluid']) !!}
+                {!! Form::open(['url' => url('admin', ['book', 'search']), 'class' => 'form-horizontal row-fluid', 'autocomplete' => 'off']) !!}
                 <div class="control-group">
                     {!! Form::text('id', null, ['class' => 'span1', 'placeholder' => 'ID']) !!}
                     {!! Form::text('isbn', null, ['class' => 'span3', 'placeholder' => 'ISBN']) !!}
@@ -24,7 +24,9 @@
                         <th>Title</th>
                         <th>Author</th>
                         <th>Status</th>
+                        @can('create', 'book')
                         <th>Task</th>
+                        @endcan
                     </tr>
 
                     @foreach($data_list as $data)
@@ -36,7 +38,10 @@
                             <td>
                                 <span class="{{ $data->currentStatus() }}"> {{ ucwords($data->currentStatus()) }}</span>
                             </td>
-                            <td><a href="{{ url('admin', ['book', $data->id, 'edit']) }}" class="btn btn-info">Edit</a></td>
+                            @can('create', 'book')
+                            <td><a href="{{ url('admin', ['book', $data->id, 'edit']) }}" class="btn btn-info">Edit</a>
+                            </td>
+                            @endcan
                         </tr>
                     @endforeach
                 </table>

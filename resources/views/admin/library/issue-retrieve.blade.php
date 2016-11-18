@@ -40,7 +40,7 @@
 
                     </tbody>
                 </table>
-                <hr>
+                <br>
                 <h5>2. Select User</h5>
                 <hr>
                 <div class="control-group">

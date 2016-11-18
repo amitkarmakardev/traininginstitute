@@ -23,7 +23,7 @@ class TraineeController extends Controller
 
     public function register(Request $request)
     {
-        $this->validate($request, config('traininginstitute.trainee.validation_rules'));
+        $this->validate($request, config(config('app.name') . '.trainee.validation_rules'));
         if (!$this->repository->isTraineeAuthorized($request->get('training_code'), $request->get('authorization_code'))) {
             return "Authorization code does not match";
         }

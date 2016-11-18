@@ -13,6 +13,8 @@ class BookController extends Controller
     public function __construct(BookRepository $repository)
     {
         $this->middleware('auth');
+        $this->middleware('check-authority:create,book')->only(['create', 'store', 'edit', 'update']);
+        $this->middleware('check-authority:issue,book')->only(['index', 'show', 'search']);
         $this->repository = $repository;
     }
 
@@ -24,13 +26,13 @@ class BookController extends Controller
 
     public function create()
     {
-        $location_options = config('traininginstitute.book.locations');
+        $location_options = config(config('app.name').'.book.locations');
         return view('admin.book.create', compact('location_options'));
     }
 
     public function store(Request $request)
     {
-        $this->validate($request, config('traininginstitute.book.create_validation_rules'));
+        $this->validate($request, config(config('app.name').'.book.create_validation_rules'));
         $this->repository->store($request);
         return redirect()->to(url('admin', ['book']));
     }
@@ -43,7 +45,7 @@ class BookController extends Controller
 
     public function edit($id)
     {
-        $location_options = config('traininginstitute.book.locations');
+        $location_options = config(config('app.name').'.book.locations');
         $data = $this->repository->get($id);
         return view('admin.book.edit', compact('data', 'location_options'));
     }

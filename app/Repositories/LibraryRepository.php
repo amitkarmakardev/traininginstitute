@@ -26,6 +26,11 @@ class LibraryRepository
         }
     }
 
+    public function issuedBooks()
+    {
+        return Library::where('retrieved_at', null)->oldest()->get();
+    }
+
     public function updateRetrievedAt($id)
     {
         $data = $this->get($id);

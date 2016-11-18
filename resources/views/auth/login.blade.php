@@ -1,41 +1,37 @@
 @extends('auth.layout')
 
 @section('left')
-    <div class="module module-login span4 offset4">
-            <div class="module-head">
-                <h3>Librarian / Admin Sign In</h3>
-            </div>
-        {!! Form::open(['url' => url('login'), 'autocomplete' => 'off']) !!}
-            <div class="module-body">
-                <div class="control-group">
-                    <div class="controls row-fluid">
-                        <input class="span12" type="text" name="username" placeholder="Username" value="" autofocus>
-                        @if($errors->has('username'))
-                            <span class="help-inline">{{ $errors->first('username')}}</span>
-                        @endif
-                    </div>
-                </div>
-                <div class="control-group">
-                    <div class="controls row-fluid">
-                        <input class="span12" type="password" name="password" placeholder="Password">
-                        @if($errors->has('password'))
-                            <span class="help-inline">{{ $errors->first('password')}}</span>
-                        @endif
-                    </div>
+    <div class="module">
+        <div class="module-head">
+            <h3>Librarian / Admin Sign In</h3>
+        </div>
+        <div class="module-body">
+            {!! Form::open(['url' => url('login'), 'autocomplete' => 'off', 'class' => 'row-fluid']) !!}
+            <div class="control-group">
+                <div class="controls">
+                    <input class="span4" type="text" name="username" placeholder="Username" value="">
+                    @if($errors->has('username'))
+                        <span class="help-inline">{{ $errors->first('username')}}</span>
+                    @endif
                 </div>
             </div>
-            <div class="module-foot">
-                <div class="control-group">
-                    <div class="controls clearfix">
-                        <button type="submit" class="btn btn-primary pull-right">Login</button>
-                        <label class="checkbox">
-                            <input type="checkbox" name="remember" id="remember"> Remember me
-                        </label>
-                    </div>
+            <div class="control-group">
+                <div class="controls">
+                    <input class="span4" type="password" name="password" placeholder="Password">
+                    @if($errors->has('password'))
+                        <span class="help-inline">{{ $errors->first('password')}}</span>
+                    @endif
                 </div>
-                {{--To create new librarian--}}
-                {{--<a href="{{ URL::route('account-create') }}">New librarian? Sign Up</a>--}}
             </div>
-        {!! Form::close() !!}
+            <div class="control-group">
+                <div class="controls clearfix">
+                    <button type="submit" class="btn btn-primary pull-right">Login</button>
+                    <label class="checkbox">
+                        <input type="checkbox" name="remember" id="remember"> Remember me
+                    </label>
+                </div>
+            </div>
+            {!! Form::close() !!}
+        </div>
     </div>
 @stop

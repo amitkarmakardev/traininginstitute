@@ -9,17 +9,17 @@
 
 <body>
 <!-- Header -->
-@include('base.header')
+{{--@include('base.header')--}}
 
-        <!-- Flash Message -->
+<!-- Flash Message -->
 @include('base.flash')
 
-        <!-- Main Content -->
+<!-- Main Content -->
 <div class="wrapper">
     <div class="container">
-        <img src="{{ asset('images/simulator.jpg') }}" alt="simulator"
-             style="width: 100%; height: 300px; margin-bottom: 30px;">
+        <img src="{{ asset('images/simulator.jpg') }}" alt="simulator" class="header-image">
         @yield('content')
+        @include('base.footer')
     </div>
 </div>
 

@@ -14,6 +14,7 @@ class TrainingController extends Controller
     public function __construct(TrainingRepository $repository)
     {
         $this->middleware('auth')->except(['publicIndex', 'publicDetails']);
+        $this->middleware('check-authority:create,training')->except(['publicIndex', 'publicDetails']);
         $this->repository = $repository;
     }
 

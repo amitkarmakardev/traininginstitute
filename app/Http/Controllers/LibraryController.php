@@ -14,12 +14,13 @@ class LibraryController extends Controller
     public function __construct(LibraryRepository $repository)
     {
         $this->middleware('auth');
+        $this->middleware('check-authority:issue,book');
         $this->repository = $repository;
     }
 
     public function showIssueRetrieveForm()
     {
-        $data_list = Library::where('retrieved_at', null)->oldest()->get();
+        $data_list = $this->repository->issuedBooks();
         return view('admin.library.issue-retrieve', compact('data_list'));
     }
 

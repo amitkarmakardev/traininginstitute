@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -25,16 +25,20 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('create', function($user, $module){
-            return in_array('create', config('traininginstitute.permission.'.$user->role.'.'.$module));
+        Gate::define('create', function ($user, $module) {
+            return in_array('create', config(config('app.name') . '.permission.' . $user->role . '.' . $module));
         });
 
-        Gate::define('view', function($user, $module){
-            return in_array('view', config('traininginstitute.permission.'.$user->role.'.'.$module));
+        Gate::define('delete', function ($user, $module) {
+            return in_array('delete', config(config('app.name') . '.permission.' . $user->role . '.' . $module));
         });
 
-        Gate::define('moderate', function($user, $module){
-            return in_array('moderate', config('traininginstitute.permission.'.$user->role.'.'.$module));
+        Gate::define('issue', function ($user, $module) {
+            return in_array('issue', config(config('app.name') . '.permission.' . $user->role . '.' . $module));
+        });
+
+        Gate::define('view', function ($user, $module) {
+            return in_array('view', config(config('app.name') . '.permission.' . $user->role . '.' . $module));
         });
     }
 }
