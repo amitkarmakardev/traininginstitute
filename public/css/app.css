@@ -1,13 +1,24 @@
-body{
+body {
     background-color: #dfe7e2;
 }
-.issued, .completed{
+.issued, .completed {
     color: #ff413e;
 }
-.available, .ongoing{
+
+.available, .ongoing {
     color: green;
 }
 
-.table{
+.table {
     border-bottom: 1px solid #dedede;
+}
+
+.navbar .navbar-inner {
+    border-bottom: none;
+}
+
+.header-image {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 30px;
 }
