@@ -16,6 +16,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['prefix' => 'error'], function(){
+   Route::get('403', function(){
+      return view('error.403');
+   });
+});
+
 // User Authentication Routes
 Route::get('login', 'Auth\LoginController@showLoginForm');
 Route::post('login', 'Auth\LoginController@login');
@@ -77,4 +83,8 @@ Route::group(['prefix' => 'ajax'], function () {
     Route::get('check-book-status/{id}', 'AjaxController@checkBookStatus');
     Route::get('lib-user-details/{lib_user_id?}', 'AjaxController@getLibUserDetails');
     Route::get('search-books', 'AjaxController@searchBooks');
+});
+
+Route::get('{page?}', function(){
+    return view('error.404');
 });
