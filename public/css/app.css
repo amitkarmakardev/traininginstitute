@@ -1,6 +1,13 @@
+body{
+    background-color: #dfe7e2;
+}
 .issued, .completed{
     color: #ff413e;
 }
 .available, .ongoing{
     color: green;
+}
+
+.table{
+    border-bottom: 1px solid #dedede;
 }

@@ -11,12 +11,17 @@
 <!-- Header -->
 @include('base.header')
 
-<!-- Flash Message -->
+        <!-- Flash Message -->
 @include('base.flash')
 
-<!-- Main Content -->
-
-@yield('content')
+        <!-- Main Content -->
+<div class="wrapper">
+    <div class="container">
+        <img src="{{ asset('images/simulator.jpg') }}" alt="simulator"
+             style="width: 100%; height: 300px; margin-bottom: 30px;">
+        @yield('content')
+    </div>
+</div>
 
 </body>
 

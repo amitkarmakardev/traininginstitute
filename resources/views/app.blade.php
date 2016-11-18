@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <title>{{ config('app.name') }}</title>
 
-    <!-- app.css -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ asset('plugins/edmin/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/edmin/bootstrap/css/bootstrap-responsive.min.css') }}">
@@ -24,6 +21,9 @@
 
     <!-- Bootstrap Datepicker -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+    <!-- app.css -->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
 </head>
 
