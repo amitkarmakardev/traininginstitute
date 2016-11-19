@@ -1,4 +1,4 @@
-@extends('public.registration.layout')
+@extends('public.layout')
 
 @section('left')
     <div class="content">

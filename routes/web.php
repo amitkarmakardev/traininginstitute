@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return "Hi";
-    return view('welcome');
-});
+Route::get('home', 'HomeController@home');
 
 Route::group(['prefix' => 'error'], function(){
    Route::get('403', function(){
