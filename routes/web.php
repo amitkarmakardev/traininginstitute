@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('home', 'HomeController@home');
+Route::get('home', 'HomeController@showHomePage');
+Route::get('facility', 'HomeController@showFacilityPage');
+Route::get('how-to-reach', 'HomeController@showHowToReachPage');
 
 Route::group(['prefix' => 'error'], function(){
    Route::get('403', function(){

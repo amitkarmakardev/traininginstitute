@@ -2,8 +2,8 @@
     @if(auth()->guest())
     <li><a href="{{ url('home') }}"><i class="fa fa-home"></i> &nbsp;Home </a></li>
     <li><a href="{{ url('training') }}"><i class="fa fa-calendar"></i> &nbsp;Training Calendar </a></li>
-    <li><a href="{{ url('home') }}"><i class="fa fa-building"></i> &nbsp;Facilities </a></li>
-    <li><a href="{{ url('home') }}"><i class="fa fa-automobile"></i> &nbsp;How to reach </a></li>
+    <li><a href="{{ url('facility') }}"><i class="fa fa-building"></i> &nbsp;Facilities </a></li>
+    <li><a href="{{ url('how-to-reach') }}"><i class="fa fa-automobile"></i> &nbsp;How to reach </a></li>
     @endif
     @can('create', 'training')
     <li>

@@ -63,7 +63,7 @@ class CreateModule extends Command
         $this->call('make:controller', ['name' => ucwords($module) . 'Controller']);
 
         // Create model
-        $this->call('make:model', ['name' => ucwords($module), '-m' => 'true']);
+        $this->call('make:model', ['name' => ucwords($module), '--migration' => 'true']);
 
         // Create config
         File::put(base_path('config') . '\\'.$app_name.'\\' . $name . '.php', '<?php return [];');

@@ -1,43 +1,19 @@
-<div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-                <i class="icon-reorder shaded"></i>
-            </a>
+<div style="margin-top: -25px; margin-bottom: 5px; padding: 2px" class="row-fluid">
+    <div class="span6">
+        <table>
+            <tr>
+                <td style="padding: 0; width: 95px">
+                    <img src="{{ asset('images/logo.jpg') }}" alt="logo" style="height: 90px;">
+                </td>
+                <td style="padding: 0">
+                    <h4 style="margin-top: 0">Bakreswar Thermal Power Plant Training Simulator</h4>
+                    <h6 style="margin:0">Operated by WBPDCL, a Govt. of West Bengal Enterprise</h6>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="span6" style="text-align: right; vertical-align: middle; padding: 10px;">
+        <h6 style="color: #7f7f7f">BKTPP Township, Birbhum - 731104 <br>Phone: 0343 220224 / 235 / 526 <br>Email: bktppsimulator@wbpdcl.co.in</h6>
+    </div>
+</div>
 
-            <a class="brand" href="{{ url('') }}">BKTPP Simulator</a>
-
-            <div class="nav-collapse collapse navbar-inverse-collapse">
-                <ul class="nav pull-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Drops <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li class="nav-header">Nav header</li>
-                            <li><a href="#">Separated link</a></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a href="#">
-                            Support
-                        </a></li>
-                    <li class="nav-user dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{ asset('plugins/edmin/images/user.png') }}" class="nav-avatar" />
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Account Settings</a></li>
-                            <li class="divider"></li>
-                            <li><a href="{{ url('logout') }}">Logout</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div><!-- /.nav-collapse -->
-        </div>
-    </div><!-- /navbar-inner -->
-</div><!-- /navbar -->

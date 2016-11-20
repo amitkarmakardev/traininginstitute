@@ -7,6 +7,7 @@
                 <h3>Home</h3>
             </div>
             <div class="module-body">
+                <p>Welcome to BKTPP Simulator Website.</p>
                 <p> Keeping pace with very fast developing technology of today and considering the technical superiority
                     and economical benefits, we have opted for the construction of higher capacity of fossil fuel power
                     plants, with most advanced state-of-the-art control device for reliable sustainable and efficient
