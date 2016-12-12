@@ -53,7 +53,7 @@ class BookController extends Controller
     public function update(Request $request, $id)
     {
         $this->repository->update($request, $id);
-        return redirect()->to(url('admin', ['book', $id]));
+        return redirect()->to(url('admin', ['book']));
     }
 
     public function search(Request $request)

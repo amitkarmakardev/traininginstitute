@@ -15,8 +15,8 @@ class CreateLibrariesTable extends Migration
     {
         Schema::create('libraries', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('book_id');
-            $table->unsignedInteger('lib_user_id');
+            $table->string('book_id');
+            $table->string('lib_user_id');
             $table->dateTime('issued_at');
             $table->dateTime('retrieved_at')->nullable();
             $table->string('user');

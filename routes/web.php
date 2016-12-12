@@ -15,10 +15,10 @@ Route::get('home', 'HomeController@showHomePage');
 Route::get('facility', 'HomeController@showFacilityPage');
 Route::get('how-to-reach', 'HomeController@showHowToReachPage');
 
-Route::group(['prefix' => 'error'], function(){
-   Route::get('403', function(){
-      return view('error.403');
-   });
+Route::group(['prefix' => 'error'], function () {
+    Route::get('403', function () {
+        return view('error.403');
+    });
 });
 
 // User Authentication Routes
@@ -61,7 +61,8 @@ Route::group(['prefix' => 'admin'], function () {
 
     // Issue Receive Books
     Route::group(['prefix' => 'library'], function () {
-        Route::get('issue-retrieve', 'LibraryController@showIssueRetrieveForm');
+        Route::get('issue', 'LibraryController@showIssueForm');
+        Route::get('retrieve', 'LibraryController@showRetrieveForm');
         Route::post('issue', 'LibraryController@issue');
         Route::patch('retrieve', 'LibraryController@retrieve');
     });
@@ -84,6 +85,6 @@ Route::group(['prefix' => 'ajax'], function () {
     Route::get('search-books', 'AjaxController@searchBooks');
 });
 
-Route::get('{page?}', function(){
+Route::get('{page?}', function () {
     return view('error.404');
 });

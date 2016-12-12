@@ -17,3 +17,4 @@
     </div>
 </div>
 
+<img src="{{ asset('images/simulator.jpg') }}" alt="simulator" class="header-image">

@@ -23,10 +23,6 @@
                     hardware/software. The control room is a replica of a 210 MW coal fired thermal power plant and
                     provides feelings of operating inside an actual control room.
                 </p>
-                <h4>Infrastructure</h4>
-                <p>
-                    BKTPP Simulator provides
-                </p>
             </div>
         </div>
     </div>

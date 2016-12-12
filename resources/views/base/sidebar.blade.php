@@ -1,9 +1,9 @@
 <ul class="widget widget-menu unstyled">
     @if(auth()->guest())
-    <li><a href="{{ url('home') }}"><i class="fa fa-home"></i> &nbsp;Home </a></li>
-    <li><a href="{{ url('training') }}"><i class="fa fa-calendar"></i> &nbsp;Training Calendar </a></li>
-    <li><a href="{{ url('facility') }}"><i class="fa fa-building"></i> &nbsp;Facilities </a></li>
-    <li><a href="{{ url('how-to-reach') }}"><i class="fa fa-automobile"></i> &nbsp;How to reach </a></li>
+        <li><a href="{{ url('home') }}"><i class="fa fa-home"></i> &nbsp;Home </a></li>
+        <li><a href="{{ url('training') }}"><i class="fa fa-calendar"></i> &nbsp;Training Calendar </a></li>
+        <li><a href="{{ url('facility') }}"><i class="fa fa-building"></i> &nbsp;Facilities </a></li>
+        <li><a href="{{ url('how-to-reach') }}"><i class="fa fa-automobile"></i> &nbsp;How to reach </a></li>
     @endif
     @can('create', 'training')
     <li>
@@ -31,9 +31,10 @@
             <li><a href="{{ url('admin', ['book', 'create']) }}"><i class="fa fa-plus"></i> &nbsp;Create </a></li>
             @endcan
             @can('issue', 'book')
-            <li><a href="{{ url('admin', ['library', 'issue-retrieve']) }}"><i class="fa fa-refresh"></i> &nbsp;Issue
-                    Retrieve
+            <li><a href="{{ url('admin', ['library', 'issue']) }}"><i class="fa fa-barcode"></i> &nbsp;Issue
                     Books </a></li>
+            <li><a href="{{ url('admin', ['library', 'retrieve']) }}"><i class="fa fa-refresh"></i> &nbsp;Retrieve Books
+                </a></li>
             @endcan
         </ul>
     </li>

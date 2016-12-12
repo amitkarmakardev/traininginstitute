@@ -1,4 +1,15 @@
 <div class="control-group">
+    {!! Form::label('category', 'Category', ['class' => 'control-label']) !!}
+    <div class="controls">
+        @if($errors->has('category'))
+            @foreach($errors->get('category') as $error)
+                <span class="validation-error-text"> &nbsp;&nbsp;&nbsp;&nbsp; - {{ $error }} </span>&nbsp;&nbsp;
+            @endforeach
+        @endif
+        {!! Form::select('category', config('traininginstitute.book.categories'), null, ['class' => 'span8']) !!}
+    </div>
+</div>
+<div class="control-group">
     {!! Form::label('isbn', 'ISBN', ['class' => 'control-label']) !!}
     <div class="controls">
         {!! Form::text('isbn', null, ['class' => 'span8']) !!}

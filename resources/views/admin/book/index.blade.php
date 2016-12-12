@@ -20,6 +20,7 @@
                 <table class="table table-striped data-table">
                     <tr>
                         <th>ID</th>
+                        <th>Category</th>
                         <th>ISBN</th>
                         <th>Title</th>
                         <th>Author</th>
@@ -32,6 +33,7 @@
                     @foreach($data_list as $data)
                         <tr>
                             <td>{{ $data->id }}</td>
+                            <td>{{ $data->category }}</td>
                             <td>{{ $data->isbn }}</td>
                             <td>{{ $data->title }}</td>
                             <td>{{ $data->author_details }}</td>

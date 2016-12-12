@@ -18,10 +18,16 @@ class LibraryController extends Controller
         $this->repository = $repository;
     }
 
-    public function showIssueRetrieveForm()
+    public function showIssueForm()
     {
         $data_list = $this->repository->issuedBooks();
-        return view('admin.library.issue-retrieve', compact('data_list'));
+        return view('admin.library.issue', compact('data_list'));
+    }
+
+    public function showRetrieveForm()
+    {
+        $data_list = $this->repository->issuedBooks();
+        return view('admin.library.retrieve', compact('data_list'));
     }
 
     public function issue(Request $request)
@@ -29,7 +35,7 @@ class LibraryController extends Controller
         $this->validate($request, config('traininginstitute.library.validation_rules'));
         $status = $this->repository->store($request);
         if($status == 'success'){
-            return redirect()->to(url('admin', ['library', 'issue-retrieve']));
+            return redirect()->to(url('admin', ['library', 'issue']));
         }
         else{
             return $status;
@@ -39,7 +45,7 @@ class LibraryController extends Controller
     public function retrieve(Request $request)
     {
         $this->repository->updateRetrievedAt($request->get('id'));
-        return redirect()->to(url('admin', ['library', 'issue-retrieve']));
+        return redirect()->to(url('admin', ['library', 'retrieve']));
     }
 
 }

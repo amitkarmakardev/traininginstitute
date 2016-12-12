@@ -15,5 +15,12 @@ return [
         'shelf_no' => 'required|integer',
         'rack_no' => 'required|integer',
         'no_of_copies' => 'required|integer',
+    ],
+
+    'categories' => [
+        'Book' => 'Book',
+        'Magazine' => 'Magazine',
+        'Manual' => 'Manual',
+        'Miscellaneous' => 'Miscellaneous',
     ]
 ];
