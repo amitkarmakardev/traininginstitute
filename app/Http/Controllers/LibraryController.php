@@ -48,4 +48,10 @@ class LibraryController extends Controller
         return redirect()->to(url('admin', ['library', 'retrieve']));
     }
 
+    public function showHistory()
+    {
+        $data_list = $this->repository->history();
+        return view('admin.library.history', compact('data_list'));
+    }
+
 }

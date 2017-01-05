@@ -30,10 +30,24 @@
             @can('create', 'book')
             <li><a href="{{ url('admin', ['book', 'create']) }}"><i class="fa fa-plus"></i> &nbsp;Create </a></li>
             @endcan
+        </ul>
+    </li>
+    @endcan
+
+    @can('issue', 'book')
+    <li>
+        <a class="collapsed" data-toggle="collapse" href="#toggleIR">
+            <i class="fa fa-bars"></i>&nbsp;
+            <i class="fa fa-chevron-down pull-right"></i>
+            Issue Receive
+        </a>
+        <ul id="toggleIR" class="collapse unstyled">
             @can('issue', 'book')
             <li><a href="{{ url('admin', ['library', 'issue']) }}"><i class="fa fa-barcode"></i> &nbsp;Issue
                     Books </a></li>
             <li><a href="{{ url('admin', ['library', 'retrieve']) }}"><i class="fa fa-refresh"></i> &nbsp;Retrieve Books
+                </a></li>
+            <li><a href="{{ url('admin', ['library', 'history']) }}"><i class="fa fa-history"></i> &nbsp;History
                 </a></li>
             @endcan
         </ul>

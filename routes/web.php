@@ -61,6 +61,7 @@ Route::group(['prefix' => 'admin'], function () {
 
     // Issue Receive Books
     Route::group(['prefix' => 'library'], function () {
+        Route::get('history', 'LibraryController@showHistory');
         Route::get('issue', 'LibraryController@showIssueForm');
         Route::get('retrieve', 'LibraryController@showRetrieveForm');
         Route::post('issue', 'LibraryController@issue');

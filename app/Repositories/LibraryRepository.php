@@ -17,13 +17,17 @@ class LibraryRepository
     public function store($request)
     {
         $book = Book::find($request->get('book_id'));
-        if($book->currentStatus() == 'available'){
+        if ($book->currentStatus() == 'available') {
             Library::create($request->all());
             return 'success';
-        }
-        else{
+        } else {
             return 'Book already issued';
         }
+    }
+
+    public function history()
+    {
+        return Library::where('retrieved_at', '<>', null)->oldest()->paginate(12);
     }
 
     public function issuedBooks()
