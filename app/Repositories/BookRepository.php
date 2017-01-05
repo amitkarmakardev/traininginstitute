@@ -33,7 +33,7 @@ class BookRepository
     public static function searchResult($request)
     {
 		if($request->get('id') != null){
-			return Book::where('id', $request->get('id'))->get();
+			return Book::where('id', $request->get('id'))->paginate(8);
 		}
 		else{
 			return Book::where('id', 'like', '%' . $request->get('id') . '%')
