@@ -9,7 +9,7 @@ class BookRepository
 
     public function all()
     {
-        return Book::all();
+        return Book::paginate(8);
     }
 
     public function get($id)
@@ -32,11 +32,16 @@ class BookRepository
 
     public static function searchResult($request)
     {
-        return
-            Book:: where('id', 'like', '%' . $request->get('id') . '%')
+		if($request->get('id') != null){
+			return Book::where('id', $request->get('id'))->get();
+		}
+		else{
+			return Book::where('id', 'like', '%' . $request->get('id') . '%')
                 ->Where('isbn', 'like', '%' . $request->get('isbn') . '%')
                 ->Where('title', 'like', '%' . $request->get('title') . '%')
                 ->Where('author_details', 'like', '%' . $request->get('author_details') . '%')
-                ->get();
+                ->paginate(8);
+		}
+        
     }
 }
