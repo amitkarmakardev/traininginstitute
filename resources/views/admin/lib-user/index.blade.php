@@ -33,6 +33,7 @@
                         </tr>
                     @endforeach
                 </table>
+                {!! $data_list->render() !!}
             </div>
         </div>
     </div>

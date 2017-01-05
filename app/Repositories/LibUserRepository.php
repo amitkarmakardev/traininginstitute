@@ -7,10 +7,9 @@ use App\LibUser;
 class LibUserRepository
 {
 
-
     public function all()
     {
-        return LibUser::all();
+        return LibUser::paginate(8);
     }
 
     public function store($request)
