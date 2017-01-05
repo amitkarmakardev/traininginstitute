@@ -9,7 +9,7 @@ return [
     'validation_rules' => [
         'user_id' => 'required',
         'name' => 'required',
-        'email' => 'required|email',
+        'email' => 'email',
         'org_details' => 'required',
         'type' => 'required'
     ],
